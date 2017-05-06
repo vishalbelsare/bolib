@@ -15,6 +15,8 @@ addons:
     apt:
         packages:
           - gfortran
+          - libblas3gf
+          - liblapack3gf
 # command to install dependencies
 install: "pip install -r requirements.txt"
 # command to run tests
