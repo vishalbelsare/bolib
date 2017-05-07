@@ -23,5 +23,6 @@ deploy:
     user: ibaidev
     password:
         secure: mYvj2jpNbGyc0f8uZpoZorpg/lFZNRV29b+eYCoLo4np8nMjX7mx/c3kLJriVGaaL7oaxC7Fd7UCdwrytfOJ56aIH8xcRb9+pWR/Quf6HhHlbxv1WttNCMkdN3D1wqhkh7kYQBTOgO8CMHE/wfaSXcl5HLGkUu9p/qRC4hlnDlrP6Er1YBE4PsoHPok+NQnpL0OgBbRQieVkRBNv4svtxpzjsDSd+J+hSbyHXnSt00AHu3wBbCRQ68jL6CJuh/bnRviAqAAuuOdlIaxjwrUEPe9Lqp6/E4DUKloDO1rDI0+7VQhvwMm7u+90XYlYnRE1ezAKm1kVd/qmR9GaxyGWACrbLZJuGAJv+Xndw9ps2IXR0EaqQ9lyYJOXmQDuECNmY3oCEG9mMkAZmfxmuy23aeYplotpGuV1KlQPhDjPx8tziaO8JeJ1MlsPtk6BKcp9usX9se3Kdr6r9QRLYTKFWFQ9BY67cvv0GvB1KL5sJmmyQj+idscIJ/pFlze2x4oJtqXNWMi0hbSGwSO0Ad6unfj0sGv2K48QzLlNy4gZgVKXOolWGutCib8s1qVxLTjIdpIY9leRBV6JYlyEbYzyZtLpVTBa8heZ0W2eiMco34qzYJVe7EivI4j7SN6Y/+AqkKFfeCLRyw5AZdxyGcYWNxC2A3c3WfXEdXESBCXozqI=
+    distributions: "sdist bdist_wheel"
     on:
         branch: master
