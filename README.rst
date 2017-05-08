@@ -1,3 +1,10 @@
+.. image:: https://travis-ci.org/ibaidev/bolib.svg?branch=master
+  :target: https://travis-ci.org/ibaidev/bolib
+  :alt: Build Status
+.. image:: https://readthedocs.org/projects/bolib/badge/?version=latest
+  :target: http://bolib.readthedocs.io/?badge=latest
+  :alt: Documentation Status
+
 BOlib
 =====
 
