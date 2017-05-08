@@ -16,7 +16,7 @@
 .env/*
 
 # Docs
-doc/_build/
+docs/_build/
 
 # PyCharm
 .idea/
