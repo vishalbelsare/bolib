@@ -36,14 +36,6 @@ bolib\.models\.gp\.kernels\.matern52 module
     :undoc-members:
     :show-inheritance:
 
-bolib\.models\.gp\.kernels\.plot\_kernel module
------------------------------------------------
-
-.. automodule:: bolib.models.gp.kernels.plot_kernel
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 bolib\.models\.gp\.kernels\.rational\_quadratic2 module
 -------------------------------------------------------
 

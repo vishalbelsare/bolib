@@ -10,6 +10,7 @@ Welcome to BOlib's documentation!
    :maxdepth: 2
 
    readme
+   modules
 
 
 Indices and tables

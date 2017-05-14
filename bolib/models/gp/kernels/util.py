@@ -21,7 +21,17 @@ import numpy as np
 
 
 def sq_distance(mat_a, mat_b, lengthscale):
-    """ Square Disance """
+    """ Measures the distance matrix between solutions of A and B.
+    
+    :param mat_a: List of solutions in lines and dimensions in columns.
+    :type mat_a: np.matrix 
+    :param mat_b: List of solutions in lines and dimensions in columns.
+    :type mat_b: np.matrix
+    :param lengthscale: Array of lenghtscale parameters. One per dimension
+     in ARD case, only one element otherwise.  
+    :type lengthscale: np.array
+    :return: Distance matrix between solutions of A and B.
+    :rtype: np.matrix """
     mat_a = mat_a / lengthscale
     mat_b = mat_b / lengthscale
     result = np.sum(np.power(mat_a, 2.0), axis=1) + \
@@ -31,7 +41,18 @@ def sq_distance(mat_a, mat_b, lengthscale):
 
 
 def dr_dx(mat_a, mat_b, lengthscale):
-    """ Gradient of the square Disance """
+    """ 
+    Measures gradient of the distance between solutions of A and B in X.
+    
+    :param mat_a: List of solutions in lines and dimensions in columns.
+    :type mat_a: np.matrix 
+    :param mat_b: List of solutions in lines and dimensions in columns.
+    :type mat_b: np.matrix
+    :param lengthscale: Array of lenghtscale parameters. One per dimension
+     in ARD case, only one element otherwise.  
+    :type lengthscale: np.array
+    :return: 3D array with the gradient in every dimension of X.
+    :rtype: np.array """
     mat_a = mat_a
     mat_b = mat_b
 
@@ -45,7 +66,20 @@ def dr_dx(mat_a, mat_b, lengthscale):
 
 
 def dr_dl(mat_a, mat_b, lengthscale):
-    """ Gradient of the square Disance """
+    """ 
+    Measures gradient of the distance between solutions of A and B in the
+    length-scale hyper-parameter space.
+
+    :param mat_a: List of solutions in lines and dimensions in columns.
+    :type mat_a: np.matrix 
+    :param mat_b: List of solutions in lines and dimensions in columns.
+    :type mat_b: np.matrix
+    :param lengthscale: Array of lenghtscale parameters. One per dimension
+     in ARD case, only one element otherwise.  
+    :type lengthscale: np.array
+    :return: 3D array with the gradient in every
+     dimension the length-scale hyper-parameter space.
+    :rtype: np.array """
     mat_a = mat_a
     mat_b = mat_b
 

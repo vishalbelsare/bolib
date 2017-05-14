@@ -21,20 +21,57 @@ import numpy as np
 
 import bolib.models.gp.kernels.util
 
+
+def stationary_function(sq_dist):
+    """ It applies the Matern (v=3/2) kernel function
+    element-wise to the distance matrix.
+
+    .. math::
+        k_{M32}(r)=(1+\dfrac{\sqrt{3}r}{l}) exp (-\dfrac{\sqrt{3}r}{l})
+
+    :param sq_dist: Distance matrix
+    :type sq_dist: np.matrix
+
+    :return: Result matrix with kernel function applied element-wise.
+    :rtype: np.matrix """
+    dist = np.sqrt(sq_dist)
+    return np.matrix(np.multiply((1 + SQRT_3*dist), np.exp(-SQRT_3*dist)))
+
 SQRT_3 = np.sqrt(3.0)
 
 
 def kernel_function(mat_a, mat_b, lengthscale):
-    """Matern v=3/2 covariance function
-    $k_{M32} \left(r\right) =\left( 1 + \dfrac{\sqrt{3}r}{l} \right)
-    exp \left( - \dfrac{\sqrt{3}r}{l} \right) $"""
+    """ Measures the distance matrix between solutions of A and B, and applies
+    the kernel function element-wise to the distance matrix.
+    
+    :param mat_a: List of solutions in lines and dimensions in columns.
+    :type mat_a: np.matrix 
+    :param mat_b: List of solutions in lines and dimensions in columns.
+    :type mat_b: np.matrix
+    :param lengthscale: Array of lenghtscale parameters. One per dimension
+     in ARD case, only one element otherwise.  
+    :type lengthscale: np.array
+    :return: Result matrix with kernel function applied element-wise.
+    :rtype: np.matrix """
     sq_dist = bolib.models.gp.kernels.util.sq_distance(
         mat_a, mat_b, lengthscale)
     return stationary_function(sq_dist)
 
 
 def dk_dx(mat_a, mat_b, lengthscale):
-    """ gradient of the kernel function """
+    """ 
+    Measures gradient of the kernel function in X.
+    
+    :param mat_a: List of solutions in lines and dimensions in columns.
+    :type mat_a: np.matrix 
+    :param mat_b: List of solutions in lines and dimensions in columns.
+    :type mat_b: np.matrix
+    :param lengthscale: Array of lenghtscale parameters. One per dimension
+     in ARD case, only one element otherwise.  
+    :type lengthscale: np.array
+    :return: 3D array with the gradient of the kernel function in every
+     dimension of X.
+    :rtype: np.array """
     dr_dx = bolib.models.gp.kernels.util.dr_dx(
         mat_a, mat_b, lengthscale)
     sq_dist = np.array(bolib.models.gp.kernels.util.sq_distance(
@@ -45,7 +82,20 @@ def dk_dx(mat_a, mat_b, lengthscale):
 
 
 def dk_dl(mat_a, mat_b, lengthscale):
-    """ gradient of the kernel function """
+    """ 
+    Measures gradient of the kernel function in the length-scale
+    hyper-parameter space.
+
+    :param mat_a: List of solutions in lines and dimensions in columns.
+    :type mat_a: np.matrix 
+    :param mat_b: List of solutions in lines and dimensions in columns.
+    :type mat_b: np.matrix
+    :param lengthscale: Array of lenghtscale parameters. One per dimension
+     in ARD case, only one element otherwise.  
+    :type lengthscale: np.array
+    :return: 3D array with the gradient of the kernel function in every
+     dimension the length-scale hyper-parameter space.
+    :rtype: np.array """
     dr_dl = bolib.models.gp.kernels.util.dr_dl(
         mat_a, mat_b, lengthscale)
     sq_dist = np.array(bolib.models.gp.kernels.util.sq_distance(
@@ -53,9 +103,3 @@ def dk_dl(mat_a, mat_b, lengthscale):
     dist = np.sqrt(sq_dist)
     grad_r2 = -1.5*np.exp(-SQRT_3*dist)
     return grad_r2[:, :, np.newaxis] * dr_dl
-
-
-def stationary_function(sq_dist):
-    """ stationary function """
-    dist = np.sqrt(sq_dist)
-    return np.matrix(np.multiply((1 + SQRT_3*dist), np.exp(-SQRT_3*dist)))
