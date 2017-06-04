@@ -18,9 +18,9 @@ Setup BOlib
 .. code-block:: bash
 
   # for ptyhon3
-  apt-get install python3-numpy python3-scipy python3-matplotlib
+  apt-get install python3-tk
   # or for python2
-  apt-get install python-numpy python-scipy python-matplotlib
+  apt-get install python-tk
   # gfortran is required if DIRECT optimizer is needed
   apt-get install gfortran
   # is also recommended to install libopenblas-base for multi-core systems
@@ -37,6 +37,15 @@ Setup BOlib
   virtualenv --system-site-packages .env
 
   source .env/bin/activate
+
+- Upgrade pip
+
+.. code-block:: bash
+
+  # for ptyhon3
+  python3 -m pip install --upgrade pip
+  # or for python2
+  python -m pip install --upgrade pip
 
 - Install BOlib package
 
