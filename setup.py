@@ -28,7 +28,7 @@ with open(path.join(HERE, 'README.rst')) as f:
 
 setup(
     name='bolib',
-    version='0.16.0',
+    version='0.17.0',
     author='Ibai Roman',
     author_email='ibaidev@users.noreply.github.com',
     description=('Python library for Bayesian Optimization.'),
@@ -48,19 +48,8 @@ setup(
         'Topic :: Scientific/Engineering :: Artificial Intelligence',
     ],
     install_requires=[
-        'scipy',
+        'gplib',
         'numpy',
-        'matplotlib',
-        'DIRECT'
-    ],
-    entry_points={
-        'bolib.models.gp.kernels': [
-            'exponential=bolib.models.gp.kernels.exponential',
-            'gamma_exponential15=bolib.models.gp.kernels.gamma_exponential15',
-            'matern32=bolib.models.gp.kernels.matern32',
-            'matern52=bolib.models.gp.kernels.matern52',
-            'rational_quadratic2=bolib.models.gp.kernels.rational_quadratic2',
-            'squared_exponential=bolib.models.gp.kernels.squared_exponential'
-        ]
-    },
+        'matplotlib'
+    ]
 )
