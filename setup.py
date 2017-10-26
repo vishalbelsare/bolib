@@ -28,7 +28,7 @@ with open(path.join(HERE, 'README.rst')) as f:
 
 setup(
     name='bolib',
-    version='0.17.0',
+    version='0.17.1',
     author='Ibai Roman',
     author_email='ibaidev@users.noreply.github.com',
     description=('Python library for Bayesian Optimization.'),
